@@ -1,0 +1,24 @@
+{% extends "shop/main.html" %}
+{% load static %}
+{% load humanize %}
+
+
+{% block title %}Nweike's store | {{product.name}}{% endblock title %}
+
+{% block body %}
+<div class="detailsCont">
+    <img src="" alt="">
+    <div>
+        <h1>{{product.name}}</h1>
+        <h2>₦ {{product.price|intcomma}}</h2>
+        <p>Model: <i>{{product.model}} </i></p>
+        <p>About Product: {{product.description}}</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>Quantity: <input type="number" value="1" min="1" max="10" name="quantity" placeholder="1" ></p>
+            <button type="submit">Order</button>
+        </form>
+        
+    </div>
+</div>
+{% endblock body %}

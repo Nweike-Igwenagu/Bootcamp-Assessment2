@@ -1,0 +1,45 @@
+{% extends "shop/main.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}Nweike's store | Orders{% endblock title %}
+
+{% block body %}
+<header>
+    <h2>My Orders</h2>
+</header>
+
+<h2 class="productTxt">All Orders (<span class="no_of_orders">{{no_of_orders}}</span>)</h2>
+
+<div class="ordersCont">
+
+<p class="emptyTxt"></p>
+
+{% for order in orders %}
+    <div>
+        <p>Product: {{order.product.name}}</p>
+        <p>Quantity: {{order.quantity}}</p>
+        <p>Date: {{order.order_date}}</p>
+        <p>Total Price: ₦ {{order.total_price|intcomma}}</p>
+        <a href="{% url 'cancelOrder' order.id %}"><small style="color: red;">cancel</small></a>
+        
+        <hr>
+    </div>
+{% endfor %}
+    
+</div>
+
+
+
+{% block js %}
+<script>
+    noOfOrders = document.querySelector(".no_of_orders")
+    orderContainer = document.querySelector(".emptyTxt")
+
+    if(noOfOrders.innerHTML == 0){        
+        orderContainer.innerHTML = "Your orders will appear here"
+    }
+</script> 
+{% endblock js %}
+
+{% endblock body %}

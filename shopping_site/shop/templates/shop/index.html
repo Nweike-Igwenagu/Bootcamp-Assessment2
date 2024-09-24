@@ -1,0 +1,27 @@
+{% extends "shop/main.html" %}
+{% load static %}
+{% load humanize %}
+
+
+{% block title %}Nweike's store | Home{% endblock title %}
+
+{% block body %}
+<header>
+    <h2>Welcome To  NWEIKE's Store</h2>
+</header>
+
+<h2 class="productTxt">All Products</h2>
+<section>
+        {% for product in products %}
+            <a href="{% url 'more_details' product.id %}">
+                <div class="products">
+                    <img src="" alt="">
+                    <p><b>{{product.name}}</b></p>
+                    <p>₦ {{product.price|intcomma}}</p>
+                    <small>Model: <i>{{product.model}}</i></small>
+                </div>
+            </a>
+        {% endfor %}
+</section>
+
+{% endblock body %}
