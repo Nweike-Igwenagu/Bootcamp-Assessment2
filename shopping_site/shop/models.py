@@ -6,11 +6,6 @@ model_choices = [('Tshirts', 'Tshirts'),
                 ('Shorts', 'Shorts'),
                 ]
 
-order_status = [('Susessful', 'Susessful'),
-                ('Pending', 'Pending'),
-                ('Failed', 'Failed'),
-                ]
-
 class Product(models.Model):
     name = models.CharField(max_length=50)
     price = models.IntegerField()
