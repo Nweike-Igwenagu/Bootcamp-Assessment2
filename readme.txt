@@ -23,6 +23,9 @@ All you need do is to run my assignment the best is to
 
 7. on your favourite browser open the django url
 
+8. there is already a created superuser, access the admin page 
+   with the username 'admin' and the password 'admin'
+
 8. And Kudos! you have completed the final step to viewing my project
    Hope it didn't stress u.
    sorry if it did.
